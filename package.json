@@ -1,0 +1,27 @@
+{
+  "name": "tickets.ua-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "nightwatch -t ./tests/test.js -c nightwatch.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexanderMusiienko/tickets.ua-task.git"
+  },
+  "keywords": [
+    "ticket.ua",
+    "nightwatch",
+    "data-scraping"
+  ],
+  "author": "AlexMs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexanderMusiienko/tickets.ua-task/issues"
+  },
+  "homepage": "https://github.com/AlexanderMusiienko/tickets.ua-task#readme"
+}
