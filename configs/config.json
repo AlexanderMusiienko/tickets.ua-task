@@ -1,10 +1,8 @@
 
 {
-    "origin": "Днепр",
-    "origin_code": "UA",
-    "destination": "Стамбул",
-    "destination_code": "TR",
-    "departure_date": "21.11.2016",
-    "return_date": "06.12.2016",
+    "origin": "Киев",
+    "destination": "Барселона",
+    "departure_date": "01.01.2017",
+    "return_date": "08.01.2017",
     "currencyCode": "UAH"
 }
