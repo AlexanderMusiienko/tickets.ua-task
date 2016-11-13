@@ -8,7 +8,7 @@ For getting started you need:
 - [Nightwatch.js](http://nightwatchjs.org/getingstarted)
 
 ### Run
-Before run the scraper, fill **config.json** as you like.
+Before run the scraper, fill **configs/config.json** as you like.
 Example:
 ```js
 {
