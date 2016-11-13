@@ -2,15 +2,15 @@ var fs = require('fs');
 
 var outputFile = './output.json';
 var inputFile = '../configs/config.json';
-var obj = require(inputFile);
+var config = require(inputFile);
 
 //set variables for flight info
 var departSelect = 'input[data-direction=departure]';
 var arrivalSelect = 'input[data-direction=arrival]';
 var departCode = '#ui-id-1 .ui-menu-item';
 var arrivalCode = '#ui-id-2 .ui-menu-item';
-var cityDepart = obj.origin;
-var cityArrival = obj.destination;
+var cityDepart = config.origin;
+var cityArrival = config.destination;
 
 var flights = {
   depart: {
@@ -37,10 +37,10 @@ function setDate(browser) {
 
   browser.assert.visible('#departure_date')
   .click('#departure_date')
-  .setValue('#departure_date', obj.departure_date)
+  .setValue('#departure_date', config.departure_date)
   .assert.visible('#departure_date_1')
   .click('#departure_date_1')
-  .setValue('#departure_date_1', obj.return_date);
+  .setValue('#departure_date_1', config.return_date);
 }
 
 //set flight info(city depart/arrival)
@@ -54,7 +54,18 @@ function flightSetup(browser, citySelect, airportCode, city) {
 
 //take flights price
 function getPrice(browser) {
-  browser.click('label[for=UAH]')
+  var currency = config.currencyCode;
+  var label = parse('label[for=%s]', currency);
+
+  function parse(str) {
+    var args = [].slice.call(arguments, 1),
+      i = 0;
+    return str.replace(/%s/g, function() {
+      return args[i++];
+    });
+  };
+
+  browser.click(label)
   .getText('.item-block__footer > .price-block', function(result) {
     var price = result.value.replace(/\D/g, '');
     flights.price = price;
