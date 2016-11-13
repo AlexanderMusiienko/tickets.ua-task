@@ -54,18 +54,9 @@ function flightSetup(browser, citySelect, airportCode, city) {
 
 //take flights price
 function getPrice(browser) {
-  var currency = config.currencyCode;
-  var label = parse('label[for=%s]', currency);
+  var currencyCode = config.currencyCode;
 
-  function parse(str) {
-    var args = [].slice.call(arguments, 1),
-      i = 0;
-    return str.replace(/%s/g, function() {
-      return args[i++];
-    });
-  };
-
-  browser.click(label)
+  browser.click('label[for=' + currencyCode + ']')
   .getText('.item-block__footer > .price-block', function(result) {
     var price = result.value.replace(/\D/g, '');
     flights.price = price;
