@@ -122,7 +122,9 @@ module.exports = {
     flightSetup(browser,arrivalSelect,arrivalCode,cityArrival);
     setDate(browser);
 
-    browser.click('input[data-action=avia-search_start-search-btn]')
+    browser.pause(1000)
+    .click('.hotels-new-tab .icheckbox_minimal')
+    .click('input[data-action=avia-search_start-search-btn]')
 
   },
 
